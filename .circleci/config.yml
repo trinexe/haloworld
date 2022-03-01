@@ -20,9 +20,11 @@ jobs:
           command: ls
       - run:
           name: Run the test
-          command: go test -v halo_test.go > /tmp/test_result
-      -store_artifacts:
-          path: /tmp/test_result
+          command: |
+            mkdir -p /tmp/test_results
+            go test -v halo_test.go > /tmp/test_results/test1
+      -store_test_results:
+          path: /tmp/test_results
 
 
 # Invoke jobs via workflows
