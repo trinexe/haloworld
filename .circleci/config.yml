@@ -23,7 +23,7 @@ jobs:
           command: |
             mkdir -p /tmp/test_results
             go test -v halo_test.go > /tmp/test_results/test1
-      -store_test_results:
+      - store_test_results:
           path: /tmp/test_results
 
 
