@@ -20,7 +20,7 @@ jobs:
           command: ls
       - run:
           name: Run the test
-          command: go test halo_test.go
+          command: go test -v halo_test.go
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
