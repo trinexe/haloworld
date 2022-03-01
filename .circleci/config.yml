@@ -24,6 +24,9 @@ jobs:
       - run:
           name: Run the test
           command: go test -v halo_test.go > /tmp/test_results/test1
+      - run:
+          name: Print the result
+          command: cat /tmp/test_results/test1
       - store_test_results:
           path: /tmp/test_results
 
