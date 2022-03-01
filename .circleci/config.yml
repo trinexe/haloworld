@@ -19,10 +19,11 @@ jobs:
           name: List current files
           command: ls
       - run:
+          name: Create test folder
+          command: mkdir -p /tmp/test_results
+      - run:
           name: Run the test
-          command: |
-            mkdir -p /tmp/test_results
-            go test -v halo_test.go > /tmp/test_results/test1
+          command: go test -v halo_test.go > /tmp/test_results/test1
       - store_test_results:
           path: /tmp/test_results
 
