@@ -1,10 +1,12 @@
-name: Go set and test
+name: Go
 on: [push]
 jobs:
   BuildAndTest:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
+    - run: echo "event starting"
     - uses: actions/checkout@v2
+
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
