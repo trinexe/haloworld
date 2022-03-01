@@ -1,0 +1,17 @@
+name: Go set and test
+on: [push]
+jobs:
+  BuildAndTest:
+    runs-on: debian-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+
+    - name: Build
+      run: go build -v ./halo.go
+
+    - name: Test
+      run: go test -v ./halo_test.go
