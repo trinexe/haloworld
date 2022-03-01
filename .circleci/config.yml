@@ -22,7 +22,7 @@ jobs:
           name: Run the test
           command: |
             mkdir -p /tmp/test_results
-            go test -v halo_test.go > /tmp/test_results/test1
+            go test -v halo_test.go > /tmp/test_results/test1.xml
       - store_test_results:
           path: /tmp/test_results
 
