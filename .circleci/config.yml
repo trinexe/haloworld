@@ -23,10 +23,10 @@ jobs:
           command: mkdir -p /tmp/test_results
       - run:
           name: Run the test
-          command: go test -v halo_test.go > /tmp/test_results/test1
+          command: go test -v halo_test.go > /tmp/test_results/test1.xml
       - run:
           name: Print the result
-          command: cat /tmp/test_results/test1
+          command: cat /tmp/test_results/test1.xml
       - store_test_results:
           path: /tmp/test_results
 
