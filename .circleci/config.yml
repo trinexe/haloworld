@@ -54,13 +54,14 @@ jobs:
       - checkout
       - attach_workspace:
           at: ./artifacts
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run:
           name: "Publish Release on GitHub"
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           command: |
             go get github.com/tcnksm/ghr
             VERSION=$(cat version)
+            GITHUB_TOKEN=
             ghr -t "${GITHUB_TOKEN}" -u "${CIRCLE_PROJECT_USERNAME}" -r "${CIRCLE_PROJECT_REPONAME}" -c "${CIRCLE_SHA1}" -delete "${VERSION}" ./artifacts/
 
 
