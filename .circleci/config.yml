@@ -23,7 +23,7 @@ jobs:
           command: mkdir -p /tmp/test_results
       - run:
           name: Run the test
-          command: gotestsum --junitfile /tmp/test_results/test1.xml
+          command: gotestsum --junitfile /tmp/test_results/test1.xml -- --coverprofile=/tmp/coverage.out
       - run:
           name: Print the result
           command: cat /tmp/test_results/test1.xml
@@ -43,6 +43,8 @@ jobs:
           path: /tmp/artifacts
       - store_artifacts:
           path: halo
+      - store_artifacts:
+          path: /tmp/coverage.out
 
 
 # Invoke jobs via workflows
