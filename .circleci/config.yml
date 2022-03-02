@@ -38,11 +38,12 @@ jobs:
             echo "my artifact files in a dir" > /tmp/artifacts/art-2;
       - store_artifacts:
           path: /tmp/cover-art
-          destination: artifact-file
+          destination: coverage_text
       - store_artifacts:
           path: /tmp/artifacts
       - store_artifacts:
           path: halo
+          destination: halo_binary
       - store_artifacts:
           path: /tmp/coverage.out
 
