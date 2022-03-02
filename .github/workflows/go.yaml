@@ -17,8 +17,8 @@ jobs:
 
     - name: Test
       run: go test -v halo_test.go halo.go
-    - uses: Klemensas/action-autotag@stable
-      with:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        version: "${{ steps.previous_step.outputs.version }}"
-        tag_prefix: "git"
+
+    - name: Tag
+      run: |
+        git tag git_v0.0.1;
+        git push origin git_v0.0.1;
