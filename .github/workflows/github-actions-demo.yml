@@ -16,5 +16,5 @@ jobs:
           ls ${{ github.workspace }}
       - name: Running the test
         run: |
-          go test ${{ github.workspace }}/halo_test.go
+          go test ${{ github.workspace }}/halo_test.go halo.go
       - run: echo "🍏 This job's status is ${{ job.status }}."
