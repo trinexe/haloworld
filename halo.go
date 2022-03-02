@@ -1,8 +1,8 @@
-package main
+package halo
 
 import "fmt"
 
-func main() {
+func halo() {
 	fmt.Println("Halo world")
 }
 

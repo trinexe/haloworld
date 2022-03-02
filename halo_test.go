@@ -1,7 +1,7 @@
-package main
+package halo
 
 import "testing"
 
 func TestHalo(t *testing.T) {
-	test()
+	halo()
 }
