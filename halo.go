@@ -7,5 +7,5 @@ func main() {
 }
 
 func test() {
-	fmt.Println("Test function")
+	fmt.Println("test function")
 }

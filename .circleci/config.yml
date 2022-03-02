@@ -19,12 +19,33 @@ jobs:
           name: List current files
           command: ls
       - run:
+          name: Create test folder
+          command: mkdir -p /tmp/test_results
+      - run:
           name: Run the test
-          command: |
-            mkdir -p /tmp/test_results
-            go test -v halo_test.go > /tmp/test_results/test1.xml
+          command: go test -v halo_test.go > /tmp/test_results/test1.xml
+          command: gotestsum --junitfile /tmp/test_results/test1.xml -- --coverprofile=/tmp/coverage.out
+      - run:
+          name: Print the result
+          command: cat /tmp/test_results/test1.xml
       - store_test_results:
           path: /tmp/test_results
+      - run:
+          name: Creating Artifacts
+          command: |
+            go build halo.go;
+            go tool cover -func=/tmp/coverage.out > /tmp/cover-art;
+            mkdir /tmp/artifacts;
+            echo "my artifact files in a dir" > /tmp/artifacts/art-2;
+      - store_artifacts:
+          path: /tmp/cover-art
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
+      - store_artifacts:
+          path: halo
+      - store_artifacts:
+          path: /tmp/coverage.out
 
 
 # Invoke jobs via workflows
