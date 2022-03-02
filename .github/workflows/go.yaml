@@ -25,13 +25,12 @@ jobs:
         ver=`expr $ver + 1`
         echo $ver > version
 
-    - name: Tag
-      run: |
         git config --global user.name "trinexe"
         git config --global user.email "katrincheung@google.com"
 
         git add .
         git commit -m "update version"
         git push
+        
         git tag git_v0.0.$ver;
         git push origin git_v0.0.$ver;
