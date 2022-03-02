@@ -22,12 +22,12 @@ jobs:
       run: |
         cat version
         ver=`cat version`      
+        ver=`expr $ver + 1`
+        echo $ver > version
 
     - name: Tag
       run: | 
-        ver=`expr $ver + 1`
-        echo $ver > version
-        git add verion
+        git add .
         git commit -m "update version"
         git push
         git tag git_v0.0.$ver;
