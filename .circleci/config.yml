@@ -30,8 +30,9 @@ jobs:
       - store_test_results:
           path: /tmp/test_results
       - run:
-          name: Creating Dummy Artifacts
+          name: Creating Artifacts
           command: |
+            go build halo.go;
             echo "my artifact file" > /tmp/art-1;
             mkdir /tmp/artifacts;
             echo "my artifact files in a dir" > /tmp/artifacts/art-2;
@@ -40,6 +41,8 @@ jobs:
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
+      - store_artifacts:
+          path: halo
 
 
 # Invoke jobs via workflows
