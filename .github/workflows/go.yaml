@@ -19,7 +19,6 @@ jobs:
       run: go test -v halo_test.go halo.go
 
     - name: Create Release
-            id: create_release
             uses: actions/create-release@latest
             env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
