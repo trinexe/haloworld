@@ -39,6 +39,7 @@ jobs:
         echo ::set-output name=TAG::git_v0.0.$ver
 
     - name: Release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,4 +48,12 @@ jobs:
         release_name: Release ${{ steps.get_version.outputs.TAG }}
         draft: false
         prerelease: false
-        files: halo
+        
+    - name: Update asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: halo
+        asset_name: halo_binary
