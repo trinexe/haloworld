@@ -36,7 +36,7 @@ jobs:
         git push origin git_v0.0.$ver;
 
     - name:
-      uses: "marvinpinto/action-automatic-release@latest"
+      uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
