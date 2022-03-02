@@ -23,7 +23,6 @@ jobs:
           command: mkdir -p /tmp/test_results
       - run:
           name: Run the test
-          command: go test -v halo_test.go > /tmp/test_results/test1.xml
           command: gotestsum --junitfile /tmp/test_results/test1.xml -- --coverprofile=/tmp/coverage.out
       - run:
           name: Print the result

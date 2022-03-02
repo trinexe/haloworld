@@ -1,7 +1,7 @@
-package halo
+package main
 
 import "testing"
 
-func TestHalo(*testing.T) {
+func TestHalo(t *testing.T) {
 	test()
 }
