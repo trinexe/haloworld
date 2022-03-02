@@ -19,7 +19,8 @@ jobs:
       run: go test -v halo_test.go halo.go
 
     - name: Tag
-      run: |
+      run: | 
+        ls
         ver=`cat version`
         ver=`expr $ver + 1`
         echo $ver > version
