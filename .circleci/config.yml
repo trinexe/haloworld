@@ -59,7 +59,7 @@ jobs:
           command: |
             go get github.com/tcnksm/ghr
             VERSION=$(cat version)
-            ghr -t "${GITHUB_TOKEN}" -u "${CIRCLE_PROJECT_USERNAME}" -r "${CIRCLE_PROJECT_REPONAME}" -c "${CIRCLE_SHA1}" -delete "${VERSION}" TAG ./artifacts/
+            ghr -t "${GITHUB_TOKEN}" -u "${CIRCLE_PROJECT_USERNAME}" -r "${CIRCLE_PROJECT_REPONAME}" -c "${CIRCLE_SHA1}" -delete "${VERSION}" ./artifacts/
 
 
 # Invoke jobs via workflows
