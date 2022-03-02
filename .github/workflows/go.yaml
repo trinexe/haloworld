@@ -57,3 +57,4 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: halo
         asset_name: halo_binary
+        asset_content_type: application/zip
