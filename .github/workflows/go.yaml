@@ -19,6 +19,7 @@ jobs:
       run: go test -v halo_test.go halo.go
 
     - name: Get version
+      id: get_version
       run: |
         cat version
         ver=`cat version`
@@ -35,12 +36,14 @@ jobs:
         git tag git_v0.0.$ver
         git push origin git_v0.0.$ver
 
+        echo ::set-output name=TAG::git_v0.0.$ver
+
     - name: Release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${GITHUB_REF#refs/tags/}
-        release_name: Release ${GITHUB_REF#refs/tags/}
+        tag_name: ${{ steps.get_version.outputs.TAG }}
+        release_name: Release ${{ steps.get_version.outputs.TAG }}
         draft: false
         prerelease: false
