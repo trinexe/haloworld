@@ -20,7 +20,7 @@ jobs:
 
     - name: Tag
       run: |
-        ver=`echo version`
+        ver=`cat version`
         ver=`expr $ver + 1`
         echo $ver > version
         git add verion
