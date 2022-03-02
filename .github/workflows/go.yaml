@@ -32,15 +32,15 @@ jobs:
         git commit -m "update version"
         git push
 
-        git tag git_v0.0.$ver;
-        git push origin git_v0.0.$ver;
+        git tag git_v0.0.$ver
+        git push origin git_v0.0.$ver
 
     - name: Release
-      - uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
