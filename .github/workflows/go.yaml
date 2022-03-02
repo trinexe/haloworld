@@ -18,10 +18,13 @@ jobs:
     - name: Test
       run: go test -v halo_test.go halo.go
 
+    - name: Get version
+      run: |
+        cat version
+        ver=`cat version`      
+
     - name: Tag
       run: | 
-        cat version
-        ver=`cat version`
         ver=`expr $ver + 1`
         echo $ver > version
         git add verion
