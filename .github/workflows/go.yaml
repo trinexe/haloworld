@@ -21,7 +21,7 @@ jobs:
     - name: Get version
       run: |
         cat version
-        ver=`cat version`      
+        ver=`cat version`
         ver=`expr $ver + 1`
         echo $ver > version
 
@@ -31,6 +31,14 @@ jobs:
         git add .
         git commit -m "update version"
         git push
-        
+
         git tag git_v0.0.$ver;
         git push origin git_v0.0.$ver;
+
+    - name:
+      uses: "marvinpinto/action-sutomatic-release@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: |
+          halo
