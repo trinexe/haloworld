@@ -33,11 +33,11 @@ jobs:
           name: Creating Artifacts
           command: |
             go build halo.go;
-            echo "my artifact file" > /tmp/art-1;
+            go tool cover -func=/tmp/coverage.out > /tmp/cover-art;
             mkdir /tmp/artifacts;
             echo "my artifact files in a dir" > /tmp/artifacts/art-2;
       - store_artifacts:
-          path: /tmp/art-1
+          path: /tmp/cover-art
           destination: artifact-file
       - store_artifacts:
           path: /tmp/artifacts
