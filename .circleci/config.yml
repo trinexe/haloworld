@@ -56,8 +56,8 @@ jobs:
           at: ./artifacts
       - run:
           name: "Publish Release on GitHub"
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          enviornment:
+            GITHUB_TOKEN: ${{ GITHUB_TOKEN }}
           command: |
             go get github.com/tcnksm/ghr
             echo $GITHUB_TOKEN
